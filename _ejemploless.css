@@ -1,0 +1,124 @@
+.content {
+  background-color: aquamarine;
+  border: 2px solid #222;
+  height: 20rem;
+}
+@media (min-width: 800px) {
+  .content {
+    float: left;
+    width: 60%;
+  }
+}
+.sidebar {
+  background-color: darkgreen;
+  border: 2px solid #222;
+  height: 20rem;
+}
+.bordered {
+  border-top: dotted 1px black;
+  border-bottom: solid 2px black;
+}
+#menu a {
+  color: #111;
+  border-top: dotted 1px black;
+  border-bottom: solid 2px black;
+}
+.post a {
+  color: red;
+  border-top: dotted 1px black;
+  border-bottom: solid 2px black;
+}
+a,
+.link {
+  color: #428bca;
+}
+a:hover {
+  color: #3071a9;
+}
+.widget {
+  color: #fff;
+  background: #428bca;
+}
+.banner {
+  font-weight: bold;
+  line-height: 40px;
+  margin: 0 auto;
+}
+body {
+  color: #444;
+  background: url("../img/white-sand.png");
+}
+.widget {
+  color: #0ee;
+  background-color: #999;
+}
+.section .element {
+  color: blue;
+}
+.my-mixin {
+  color: black;
+}
+.class {
+  color: black;
+  background: white;
+}
+button {
+  color: red;
+}
+button:hover {
+  border: 1px solid red;
+}
+.c {
+  color: red;
+}
+.class {
+  color: black;
+}
+#header {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+.class1 {
+  color: #33acfe;
+  margin: 20px;
+  padding: 20px;
+}
+.class2 {
+  color: #efca44;
+  margin: 10px;
+  padding: 40px;
+}
+.big-block {
+  -webkit-box-shadow: 2px 5px 1px #000;
+  -moz-box-shadow: 2px 5px 1px #000;
+  box-shadow: 2px 5px 1px #000;
+}
+.component {
+  width: 300px;
+}
+@media (min-width: 768px) {
+  .component {
+    width: 600px;
+  }
+}
+@media (min-width: 768px) and (min-resolution: 192dpi) {
+  .component {
+    background-image: url(/img/retina2x.png);
+  }
+}
+@media (min-width: 1280px) {
+  .component {
+    width: 800px;
+  }
+}
+@media (min-width: 768px) {
+  .element {
+    font-size: 1.2rem;
+  }
+}
+.class {
+  width: 50%;
+  color: #f6430f;
+  background-color: #f8b38d;
+}

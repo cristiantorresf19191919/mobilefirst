@@ -1,0 +1,209 @@
+.content{
+    //Properties for smaller screens
+    //Nothing is required here because we can use
+    //the default styles
+    background-color: aquamarine;
+    border: 2px solid #222;
+    height: 20rem;
+    @media (min-width:800px){
+        float: left;
+        width: 60%;
+    }
+}
+
+.sidebar{
+    background-color: darkgreen;
+    border: 2px solid #222;
+    height: 20rem;
+}
+
+.bordered {
+    border-top: dotted 1px black;
+    border-bottom: solid 2px black;
+  }
+
+  #menu a {
+    color: #111;
+    .bordered();
+  }
+  
+  .post a {
+    color: red;
+    .bordered();
+  }
+
+  // Variables
+@link-color:        #428bca; // sea blue
+@link-color-hover:  darken(@link-color, 10%);
+
+// Usage
+a,
+.link {
+  color: @link-color;
+}
+a:hover {
+  color: @link-color-hover;
+}
+.widget {
+  color: #fff;
+  background: @link-color;
+}
+
+// Variables
+@my-selector: banner;
+
+// Usage
+.@{my-selector} {
+  font-weight: bold;
+  line-height: 40px;
+  margin: 0 auto;
+}
+
+// Variables
+@images: "../img";
+
+// Usage
+body {
+  color: #444;
+  background: url("@{images}/white-sand.png");
+}
+
+@property: color;
+
+.widget {
+  @{property}: #0ee;
+  background-@{property}: #999;
+}
+
+
+@primary:  green;
+@secondary: blue;
+
+.section {
+  @color: secondary;
+
+  .element {
+    color: @@color;
+  }
+}
+
+
+// mixings
+
+.my-mixin {
+  color: black;
+}
+//not render
+.my-other-mixin() {
+  background: white;
+}
+.class {
+  .my-mixin();
+  .my-other-mixin();
+}
+
+// Mixins can contain more than
+// just properties, they can contain
+// selectors too.
+.my-hover-mixin() {
+  color: red;
+  &:hover {
+    border: 1px solid red;
+  }
+}
+button {
+  .my-hover-mixin();
+}
+
+
+
+#outer() {
+  .inner {
+    color: red;
+  }
+}
+
+.c {
+  #outer.inner();
+}
+
+
+#my-library {
+  .my-mixin() {
+    color: black;
+  }
+}
+// which can be used like this
+.class {
+  #my-library.my-mixin();
+}
+
+.border-radius(@radius: 5px) {
+  -webkit-border-radius: @radius;
+     -moz-border-radius: @radius;
+          border-radius: @radius;
+}
+
+#header {
+  .border-radius();
+}
+
+
+//named paremeters
+.mixin(@color: black; @margin: 10px; @padding: 20px) {
+  color: @color;
+  margin: @margin;
+  padding: @padding;
+}
+.class1 {
+  .mixin(@margin: 20px; @color: #33acfe);
+}
+.class2 {
+  .mixin(#efca44; @padding: 40px);
+}
+
+//The @arguments Variable
+
+.box-shadow(@x: 0; @y: 0; @blur: 1px; @color: #000) {
+  -webkit-box-shadow: @arguments;
+     -moz-box-shadow: @arguments;
+          box-shadow: @arguments;
+}
+.big-block {
+  .box-shadow(2px; 5px);
+}
+
+
+//nesting media queries
+.component {
+  width: 300px;
+  @media (min-width: 768px) {
+    width: 600px;
+    @media  (min-resolution: 192dpi) {
+      background-image: url(/img/retina2x.png);
+    }
+  }
+  @media (min-width: 1280px) {
+    width: 800px;
+  }
+}
+
+
+//scaping
+@min768: ~"(min-width: 768px)";
+.element {
+  @media @min768 {
+    font-size: 1.2rem;
+  }
+}
+
+//Functions
+@base: #f04615;
+@width: 0.5;
+
+.class {
+  width: percentage(@width); // returns `50%`
+  color: saturate(@base, 5%);
+  background-color: spin(lighten(@base, 25%), 8);
+}
+
